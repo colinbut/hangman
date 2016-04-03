@@ -4,7 +4,7 @@ package com.mycompany.hangman;
  * Hello world!
  *
  */
-public class App 
+public class Hangman
 {
     public static void main( String[] args )
     {
