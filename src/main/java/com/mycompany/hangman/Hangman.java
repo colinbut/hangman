@@ -8,12 +8,11 @@ import java.util.List;
  * Hangman
  *
  * @author colin
- *
  */
-public class Hangman
-{
+public class Hangman {
+
     private String word;
-    private List<Character> alphabet = new ArrayList<>();
+    private final List<Character> alphabet = new ArrayList<>();
 
     private static final String letters = "abcdefghijklmnopqrstuvvwxyz";
 
@@ -30,16 +29,20 @@ public class Hangman
     }
 
 
-    private boolean hasWordContainLetter(char character) {
+    private boolean doesWordContainLetter(char character) {
         return word.indexOf(character) != -1;
     }
 
-    public String guessLetter(char character) {
-        if (hasWordContainLetter(character)) {
+    public void guessLetter(char character) {
+        if (doesWordContainLetter(character)) {
             System.out.format("Word: %s has letter: %s%n", word, character);
         }
         alphabet.remove(new Character(character));
-        return getPartialGuessedWord(character);
+        word = getPartialGuessedWord(character);
+    }
+
+    public String getWord() {
+        return word;
     }
 
 
@@ -67,7 +70,7 @@ public class Hangman
         //Hangman hangman = new Hangman(args[0]);
 
         Hangman hangman = new Hangman("Spotify");
-        String result = hangman.guessLetter('A');
-        System.out.println(result);
+        hangman.guessLetter('A');
+        System.out.println(hangman.getWord());
     }
 }

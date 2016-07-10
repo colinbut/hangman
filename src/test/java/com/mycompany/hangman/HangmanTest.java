@@ -19,15 +19,26 @@ public class HangmanTest {
     }
 
 
-
     @Test
     public void testGuessLetter() {
-        Assert.assertEquals("*******", hangman.guessLetter('a'));
-        Assert.assertEquals("**o****", hangman.guessLetter('o'));
-        Assert.assertEquals("*po****", hangman.guessLetter('p'));
-        Assert.assertEquals("*po****", hangman.guessLetter('g'));
-        Assert.assertEquals("*pot***", hangman.guessLetter('t'));
-        Assert.assertEquals("*poti**", hangman.guessLetter('i'));
+        hangman.guessLetter('a');
+        Assert.assertEquals("*******", hangman.getWord());
+
+        hangman.guessLetter('o');
+
+        Assert.assertEquals("**o****", hangman.getWord());
+
+        hangman.guessLetter('p');
+        Assert.assertEquals("*po****", hangman.getWord());
+
+        hangman.guessLetter('g');
+        Assert.assertEquals("*po****", hangman.getWord());
+
+        hangman.guessLetter('t');
+        Assert.assertEquals("*pot***", hangman.getWord());
+
+        hangman.guessLetter('i');
+        Assert.assertEquals("*poti**", hangman.getWord());
 
         System.out.println(hangman.getAvailableCharactersFromAlphabet());
 
