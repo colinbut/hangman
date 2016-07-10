@@ -40,7 +40,7 @@ public class Word {
                 maskedWordCharacters[i] = word.charAt(positionToUnmask);
             }
         }
-        maskedWord = Arrays.toString(maskedWordCharacters);
+        maskedWord = String.copyValueOf(maskedWordCharacters);
     }
 
 }
