@@ -29,7 +29,7 @@ public class WordTest {
     @Test
     public void test_unmaskWord_withPositionToUnmask() {
         int positionToUnmask = 2;
-        word.unmaskWord(positionToUnmask);
+        word.unmaskWord('o');
         assertEquals("**o****", word.getMaskedWord());
     }
 

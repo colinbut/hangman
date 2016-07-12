@@ -7,8 +7,6 @@ package com.mycompany.hangman;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
-
 /**
  * @author colin
  */
@@ -32,8 +30,13 @@ public class Word {
         return maskedWord;
     }
 
+    public boolean doesWordContainLetter(char letter) {
+        return word.contains(String.valueOf(letter));
+    }
 
-    public void unmaskWord(int positionToUnmask) {
+
+    public void unmaskWord(char character) {
+        int positionToUnmask = findLetterPositionInWord(character);
         char[] maskedWordCharacters = maskedWord.toCharArray();
         for (int i = 0; i < maskedWord.length(); i++) {
             if (i == positionToUnmask) {
@@ -41,6 +44,10 @@ public class Word {
             }
         }
         maskedWord = String.copyValueOf(maskedWordCharacters);
+    }
+
+    private int findLetterPositionInWord(char character) {
+        return word.indexOf(character);
     }
 
 }

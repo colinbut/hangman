@@ -6,11 +6,11 @@
 package com.mycompany.hangman;
 
 /**
- * Enumeration representing letters of the Alphabet
+ * Enumeration representing letters of the AlphabetLetter
  *
  * @author colin
  */
-public enum Alphabet {
+public enum AlphabetLetter {
 
     A("A"),
     B("B"),
@@ -42,7 +42,7 @@ public enum Alphabet {
 
     private String letter;
 
-    Alphabet(String letter) {
+    AlphabetLetter(String letter) {
         this.letter = letter;
     }
 
