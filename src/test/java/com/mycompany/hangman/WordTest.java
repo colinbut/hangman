@@ -28,7 +28,7 @@ public class WordTest {
 
     @Test
     public void test_unmaskWord_withPositionToUnmask() {
-        word.unmaskWord('o');
+        word.unmaskCharacterInWord('o');
         assertEquals("**o****", word.getMaskedWord());
     }
 

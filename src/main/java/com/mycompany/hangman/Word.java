@@ -35,7 +35,7 @@ public class Word {
     }
 
 
-    public void unmaskWord(char character) {
+    public void unmaskCharacterInWord(char character) {
         int positionToUnmask = findLetterPositionInWord(character);
         char[] maskedWordCharacters = maskedWord.toCharArray();
         for (int i = 0; i < maskedWord.length(); i++) {

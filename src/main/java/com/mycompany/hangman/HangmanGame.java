@@ -18,5 +18,6 @@ public class HangmanGame {
         //Hangman hangman = new Hangman(args[0]);
 
         Hangman hangman = new Hangman("Spotify");
+
     }
 }
