@@ -24,7 +24,7 @@ public class Hangman {
     private void checkValidLetter(char character) {
         boolean valid = false;
         for (AlphabetLetter alphabetLetter : AlphabetLetter.values()) {
-            if (alphabetLetter.getLetter().equals(String.valueOf(character))) {
+            if (alphabetLetter.getLetter().equalsIgnoreCase(String.valueOf(character))) {
                 valid = true;
                 break;
             }
@@ -40,6 +40,10 @@ public class Hangman {
         if (wordToGuess.doesWordContainLetter(character)) {
             wordToGuess.unmaskWord(character);
         }
+    }
+
+    public Word getWordToGuess() {
+        return wordToGuess;
     }
 
 
