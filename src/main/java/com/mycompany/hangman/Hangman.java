@@ -42,20 +42,26 @@ public class Hangman {
     }
 
     private void checkAlreadyGuessedLetter(char character) {
-        if (guessedCharacters.contains(character)) {
+        AlphabetLetter alphabetLetter = AlphabetLetter.valueOf(
+            String.valueOf(character).toUpperCase());
+        if (guessedCharacters.contains(alphabetLetter)) {
             throw new IllegalArgumentException("Character already guessed");
         }
     }
 
     public void guessLetter(char character) {
+
+        System.out.println("Guessing: " + character);
+
         checkValidLetter(character);
         checkAlreadyGuessedLetter(character);
 
-        if (wordToGuess.doesWordContainLetter(character)) {
-            wordToGuess.unmaskCharacterInWord(character);
-            addLetterToGuessed(character);
-        }
+        String letter = String.valueOf(character).toLowerCase();
 
+        if (wordToGuess.doesWordContainLetter(letter)) {
+            wordToGuess.unmaskCharacterInWord(letter);
+        }
+        addLetterToGuessed(character);
     }
 
     private void addLetterToGuessed(char character) {
@@ -72,6 +78,22 @@ public class Hangman {
     public Set<AlphabetLetter> getAvailableCharactersForGuessing() {
         availableCharacters.removeAll(guessedCharacters);
         return availableCharacters;
+    }
+
+    private int getRemainingLettersToGuess() {
+        String wordToGuessMasked = wordToGuess.getMaskedWord();
+        int numberOfMaskedLetters = 0;
+        for (char ch : wordToGuessMasked.toCharArray()) {
+            // if the character is '*'
+            if ("*".equals(String.valueOf(ch))) {
+                numberOfMaskedLetters++;
+            }
+        }
+        return numberOfMaskedLetters;
+    }
+
+    public boolean stillHasMoreLettersToGuess() {
+        return getRemainingLettersToGuess() > 0;
     }
 
 

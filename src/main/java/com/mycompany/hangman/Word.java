@@ -17,7 +17,7 @@ public class Word {
 
 
     public Word(String word) {
-        this.word = word;
+        this.word = word.toLowerCase();
         maskedWord = StringUtils.repeat("*", word.length());
     }
 
@@ -30,12 +30,14 @@ public class Word {
         return maskedWord;
     }
 
-    public boolean doesWordContainLetter(char letter) {
-        return word.contains(String.valueOf(letter));
+    public boolean doesWordContainLetter(String letter) {
+        System.out.println("Checking " + letter + " against " + word.toLowerCase());
+        return word.contains(letter);
     }
 
 
-    public void unmaskCharacterInWord(char character) {
+    public void unmaskCharacterInWord(String letter) {
+        char character = letter.charAt(0);
         int positionToUnmask = findLetterPositionInWord(character);
         char[] maskedWordCharacters = maskedWord.toCharArray();
         for (int i = 0; i < maskedWord.length(); i++) {
