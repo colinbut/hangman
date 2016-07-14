@@ -22,6 +22,8 @@ public class Word {
     }
 
 
+    //region accessors
+
     public String getWord() {
         return word;
     }
@@ -29,6 +31,11 @@ public class Word {
     public String getMaskedWord() {
         return maskedWord;
     }
+
+    //endregion
+
+
+    //region public method
 
     public boolean doesWordContainLetter(String letter) {
         System.out.println("Checking " + letter + " against " + word.toLowerCase());
@@ -53,8 +60,15 @@ public class Word {
         maskedWord = String.copyValueOf(maskedWordCharacters);
     }
 
+    //endregion
+
+
+    //region private helper method
+
     private int findLetterPositionInWord(char character) {
         return word.indexOf(character);
     }
+
+    //endregion
 
 }
