@@ -18,7 +18,7 @@ public class Word {
 
     public Word(String word) {
         this.word = word.toLowerCase();
-        maskedWord = StringUtils.repeat("*", word.length());
+        maskedWord = StringUtils.repeat(HangmanConstants.WORD_MASK, word.length());
     }
 
 
@@ -37,6 +37,11 @@ public class Word {
 
 
     public void unmaskCharacterInWord(String letter) {
+
+        if (letter.length() != 1) {
+            throw new IllegalStateException("Not a single letter");
+        }
+
         char character = letter.charAt(0);
         int positionToUnmask = findLetterPositionInWord(character);
         char[] maskedWordCharacters = maskedWord.toCharArray();

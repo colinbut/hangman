@@ -85,7 +85,7 @@ public class Hangman {
         int numberOfMaskedLetters = 0;
         for (char ch : wordToGuessMasked.toCharArray()) {
             // if the character is '*'
-            if ("*".equals(String.valueOf(ch))) {
+            if (HangmanConstants.WORD_MASK.equals(String.valueOf(ch))) {
                 numberOfMaskedLetters++;
             }
         }
