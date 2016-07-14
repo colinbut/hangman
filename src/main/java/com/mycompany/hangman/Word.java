@@ -68,4 +68,13 @@ public class Word {
 
     //endregion
 
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Word{");
+        sb.append("maskedWord='").append(maskedWord).append('\'');
+        sb.append(", word='").append(word).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
