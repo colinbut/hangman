@@ -42,9 +42,7 @@ public class Hangman {
     }
 
     private void checkAlreadyGuessedLetter(char character) {
-        AlphabetLetter alphabetLetter = AlphabetLetter.valueOf(
-            String.valueOf(character).toUpperCase());
-        if (guessedCharacters.contains(alphabetLetter)) {
+        if (guessedCharacters.contains(AlphabetLetter.valueOf(character))) {
             throw new IllegalArgumentException("Character already guessed");
         }
     }
@@ -65,10 +63,7 @@ public class Hangman {
     }
 
     private void addLetterToGuessed(char character) {
-        AlphabetLetter alphabetLetter = AlphabetLetter.valueOf(
-            String.valueOf(character).toUpperCase());
-
-        guessedCharacters.add(alphabetLetter);
+        guessedCharacters.add(AlphabetLetter.valueOf(character));
     }
 
     public Word getWordToGuess() {

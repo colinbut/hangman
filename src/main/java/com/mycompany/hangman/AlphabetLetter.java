@@ -50,5 +50,9 @@ public enum AlphabetLetter {
         return letter;
     }
 
+    public static AlphabetLetter valueOf(char character) {
+        return AlphabetLetter.valueOf(String.valueOf(character).toUpperCase());
+    }
+
 
 }
