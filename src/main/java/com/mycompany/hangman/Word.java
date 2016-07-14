@@ -51,13 +51,10 @@ public class Word {
 
         char character = letter.charAt(0);
         int positionToUnmask = findLetterPositionInWord(character);
-        char[] maskedWordCharacters = maskedWord.toCharArray();
-        for (int i = 0; i < maskedWord.length(); i++) {
-            if (i == positionToUnmask) {
-                maskedWordCharacters[i] = word.charAt(positionToUnmask);
-            }
-        }
-        maskedWord = String.copyValueOf(maskedWordCharacters);
+
+        StringBuilder sb = new StringBuilder(maskedWord);
+        sb.setCharAt(positionToUnmask, character);
+        maskedWord = sb.toString();
     }
 
     //endregion
