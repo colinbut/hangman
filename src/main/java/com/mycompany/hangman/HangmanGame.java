@@ -21,11 +21,17 @@ public class HangmanGame {
         this.hangman = hangman;
     }
 
-    public void playGame() {
+    public void playRandomGame() {
         while (hangman.stillHasMoreLettersToGuess()) {
             hangman.guessLetter(getRandomCharacter());
             System.out.println(hangman.getWordToGuess().getMaskedWord());
         }
+    }
+
+    public static void playAutomatedHangmanGame() {
+        Hangman hangman = new Hangman("Spotify");
+        HangmanGame hangmanGame = new HangmanGame(hangman);
+        hangmanGame.playRandomGame();
     }
 
     public static void main(String[] args) throws IOException {
@@ -35,12 +41,6 @@ public class HangmanGame {
 //        }
 
         //Hangman hangman = new Hangman(args[0]);
-
-        Hangman hangman = new Hangman("Spotify");
-
-        HangmanGame hangmanGame = new HangmanGame(hangman);
-        hangmanGame.playGame();
-
     }
 
     private char getRandomCharacter() {

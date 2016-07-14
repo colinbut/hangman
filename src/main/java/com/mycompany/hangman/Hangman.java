@@ -27,20 +27,6 @@ public class Hangman {
         }
     }
 
-    private void checkValidLetter(char character) {
-        boolean valid = false;
-        for (AlphabetLetter alphabetLetter : AlphabetLetter.values()) {
-            if (alphabetLetter.getLetter().equalsIgnoreCase(String.valueOf(character))) {
-                valid = true;
-                break;
-            }
-        }
-
-        if (!valid) {
-            throw new IllegalArgumentException("Invalid character input");
-        }
-    }
-
     private void checkAlreadyGuessedLetter(char character) {
         if (guessedCharacters.contains(AlphabetLetter.valueOf(character))) {
             throw new IllegalArgumentException("Character already guessed");
@@ -51,7 +37,6 @@ public class Hangman {
 
         System.out.println("Guessing: " + character);
 
-        checkValidLetter(character);
         checkAlreadyGuessedLetter(character);
 
         String letter = String.valueOf(character).toLowerCase();
