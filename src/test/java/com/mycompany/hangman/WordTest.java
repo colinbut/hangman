@@ -11,6 +11,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * @author colin
+ */
 public class WordTest {
 
     private Word word;
@@ -30,6 +33,11 @@ public class WordTest {
     public void test_unmaskWord_withPositionToUnmask() {
         word.unmaskCharacterInWord("o");
         assertEquals("**o****", word.getMaskedWord());
+    }
+
+    @Test
+    public void test_doesWordContainLetter_method() {
+        assertTrue(word.doesWordContainLetter("i"));
     }
 
 }
